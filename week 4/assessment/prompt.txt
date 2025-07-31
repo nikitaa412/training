@@ -1,0 +1,18 @@
+i need to build an 'Insurance claim validator' using agentic-AI with three agents:
+1. document extractor
+2. policy checker
+3. fraud detector
+
+all this using crew-ai or langchain framework. for the fraud detector agent i need to build a machine learning model
+with lof (local outlier factor) and predict if its a legitimate or fraud claim.
+
+i need to integrate this with an LLM (llama model preferred), and it should return if its a legitimate or fraud claim,
+i have a dataset of health insurance fraud to train the ml model as well
+
+when i first upload the document, the document extractor should check if its a health insurance document or no.
+if it is a health insurance document then pass it on to the policy checker and further to the fraud detector.
+
+if its a legitimate claim, display 'claim approved' and why it is a legitimate claim
+of its a fraud claim, display 'claim rejected' and why it is a fraud claim
+
+C:\Users\NikitaRampurkarV-Sof\nikita_vsoft\tasks\week 2\GenAI

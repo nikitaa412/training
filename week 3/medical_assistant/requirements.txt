@@ -1,0 +1,8 @@
+streamlit
+langchain
+pillow
+pymupdf
+deep-translator
+openai
+ollama
+python-dotenv

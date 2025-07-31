@@ -1,0 +1,19 @@
+class FraudModel:
+    def __init__(self):
+        # Load your trained model here or initialize parameters
+        pass
+    
+    def predict(self, claim_data):
+        """
+        Input: claim_data (dict) - data about the insurance claim
+        Output: fraud_score (float) - probability or score of fraud risk (0 to 1)
+        """
+        # For now, just a dummy example returning 0 (no fraud)
+        # Replace with actual ML model inference later
+        return 0.0
+
+    def explain(self, claim_data):
+        """
+        Optional: explain why the model flagged or didn't flag the claim.
+        """
+        return "No suspicious patterns detected."
