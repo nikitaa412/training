@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales & Profit Chart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: #f4f8fb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container {
+            max-width: 1000px;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+
+        h2, h3 {
+            color: #007acc;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="date"] {
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005c99;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .chart-container img {
+            width: 100%;
+            max-width: 960px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Date Range</h2>
+        <form method="POST">
+            <label for="start_date">Start Date:</label>
+            <input type="date" name="start_date" value="{{ start_date }}">
+
+            <label for="end_date">End Date:</label>
+            <input type="date" name="end_date" value="{{ end_date }}">
+
+            {% if num_days %}
+                <p class="info">Number of Days: {{ num_days }}</p>
+            {% endif %}
+
+            <input type="submit" value="Generate">
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    {% if image %}
+    <div class="chart-container">
+        <h3>Sales and Profit Chart</h3>
+        <img src="data:image/png;base64,{{ image }}" alt="Chart">
+    </div>
+    {% endif %}
+</body>
+</html>
